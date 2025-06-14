@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind (v3+) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome 6 + Devicon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" defer></script>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css" />
+
+  <title>Core Skills | Swaroop Chandrapalaka</title>
+
+  <style>
+    @keyframes slideUpFade{0%{opacity:0;transform:translateY(40px);}100%{opacity:1;transform:translateY(0);}}
+    .animate-slideUpFade{animation:slideUpFade .8s ease-out forwards;}
+  </style>
+</head>
+
+<body class="min-h-screen bg-black text-white font-sans tracking-wide">
+
+  <!-- ===== Sticky Header ===== -->
+  <header class="p-6 flex items-center justify-between bg-black/80 sticky top-0 backdrop-blur">
+    <h1 class="text-3xl sm:text-4xl" style="color:#e50914">Swaroop's Portfolio</h1>
+    <nav class="space-x-4 text-sm sm:text-base">
+      <a href="home.html"       class="hover:text-white transition">Home</a>
+      <a href="about.html"      class="hover:text-white transition">About</a>
+      <a href="experience.html" class="hover:text-white transition">Experience</a>
+      <a href="skills.html"     class="text-white">Skills</a>
+      <a href="contact.html"    class="hover:text-white transition">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ===== Title ===== -->
+  <section class="mx-auto max-w-6xl px-6 py-10 lg:py-14">
+    <h2 class="text-center text-4xl lg:text-5xl font-extrabold text-[#e50914] mb-12 animate-slideUpFade">
+      Core&nbsp;Skills
+    </h2>
+
+    <div id="skillsGrid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
+  </section>
+
+  <!-- ===== Card Template ===== -->
+  <template id="skill-card-template">
+    <div class="skill-card relative p-6 rounded-xl bg-gray-900/60 border border-gray-700 hover:bg-gray-900
+                transition group opacity-0 translate-y-10">
+      <div class="icon text-4xl mb-4 text-[#e50914] group-hover:scale-110 transition-transform"></div>
+      <p class="text-lg font-semibold text-center"></p>
+    </div>
+  </template>
+
+  <!-- ===== Script ===== -->
+  <script>
+    /* Icon class (FontAwesome / Devicon)  |  Label text */
+    const skills = [
+      /* ─── Programming & Querying ─── */
+      ['devicon-python-plain',                       'Python (Pandas, NumPy)'],
+      ['devicon-r-plain',                            'R & RStudio'],
+      ['devicon-azuresqldatabase-plain',             'SQL (MySQL, PostgreSQL, MSSQL)'],
+      ['fas fa-snowflake',                    'Snowflake'],
+      ['devicon-google-plain',                       'Excel / Google Sheets'],
+
+      /* ─── BI & Visualisation ─── */
+      ['fas fa-chart-area',                          'Power BI'],
+      ['fas fa-chart-pie',                           'Tableau / Looker'],
+      ['fas fa-chart-line',                          'QuickSight'],
+      ['fas fa-bolt',                                'ETL & Data Pipelines'],
+      ['fas fa-chart-bar',                           'Data Visualisation'],
+
+      /* ─── Data / ML Libraries ─── */
+      ['devicon-opencv-plain',                       'OpenCV'],
+      ['fas fa-eye',                                 'PyTesseract'],
+      ['fa-solid fa-spoon',                          'BeautifulSoup'],
+      ['fas fa-brain',                               'Machine Learning (sklearn)'],
+      ['fas fa-square-root-alt',                     'Statistics & A/B Testing'],
+
+      /* ─── Backend & APIs ─── */
+      ['devicon-flask-original',                     'Flask & REST APIs'],
+      ['fas fa-server',                              'MSSQL / Redshift'],
+
+      /* ─── Cloud / Dev ─── */
+      ['devicon-amazonwebservices-plain-wordmark',   'AWS (S3, Redshift)'],
+      ['devicon-github-original',                    'Git / GitHub'],
+
+      /* ─── Techniques & Processes ─── */
+      ['fas fa-recycle',                             'Data Wrangling'],
+      ['fas fa-wave-square',                         'Predictive Modeling'],
+      ['fas fa-bullseye',                            'KPI Tracking'],
+      ['fas fa-route',                               'Scenario Modeling'],
+      ['fas fa-shield-halved',                        'Compliance Auditing'],
+      ['fas fa-robot',                               'Reporting Automation'],
+
+      /* ─── Domain & Soft Skills ─── */
+      ['fas fa-notes-medical',                       'Healthcare Data (UDS, CQMs)'],
+      ['fas fa-people-group',                        'Agile Collaboration'],
+      ['fas fa-comments',                            'Story-telling & Insight Presentation'],
+      ['fas fa-gears',                               'Automation / Scripting'],
+      ['fas fa-shield-halved',                       'Data Governance & Security']
+    ];
+
+    const grid = document.getElementById('skillsGrid');
+    const template = document.getElementById('skill-card-template');
+
+    skills.forEach((skill, idx) => {
+      const [iconClass, label] = skill;
+      const fragment = template.content.cloneNode(true);
+      fragment.querySelector('.icon').innerHTML = `<i class="${iconClass}"></i>`;
+      fragment.querySelector('p').textContent = label;
+
+      const card = fragment.querySelector('.skill-card');
+      setTimeout(() => {
+        card.classList.add('animate-slideUpFade');
+        card.classList.remove('opacity-0', 'translate-y-10');
+      }, idx * 90);
+
+      grid.appendChild(fragment);
+    });
+  </script>
+</body>
+</html>

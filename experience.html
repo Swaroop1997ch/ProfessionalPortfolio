@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Experience | Swaroop Chandrapalaka</title>
+
+  <!-- Fonts & libs -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Ho+d0i+FR35l8Fl+jzawEJqd+YmfVJhM4SM7b2oKEx0Iwq3aO+yQt8vuhHrtnGyE6HknBjNl3G6XCrGXrCI2Cg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Theme + simple animation -->
+  <style>
+    :root { --netflix-red:#e50914; }
+    @keyframes slideUpFade { 0% {opacity:0;transform:translateY(40px);} 100% {opacity:1;transform:translateY(0);} }
+    .animate-slideUpFade { animation:slideUpFade .7s ease-out forwards; }
+  </style>
+</head>
+
+<body class="min-h-screen bg-black text-white font-sans tracking-wide">
+
+  <!-- ===== Sticky header / nav ===== -->
+  <header class="p-6 flex items-center justify-between bg-black/80 sticky top-0 backdrop-blur z-30">
+    <h1 class="text-3xl sm:text-4xl"
+        style="color:var(--netflix-red);font-family:'Bebas Neue',sans-serif;">
+      Swaroop's Portfolio
+    </h1>
+    <nav class="space-x-4 text-sm sm:text-base">
+      <a href="home.html"     class="hover:text-white transition">Home</a>
+      <a href="about.html"    class="hover:text-white transition">About</a>
+	  <a href="experience.html"   class="text-white">Experience</a>
+      <a href="skills.html"   class="hover:text-white transition">Skills</a>
+      <a href="contact.html"  class="hover:text-white transition">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ===== Professional Experience ===== -->
+  <section id="experience" class="py-12 px-4 flex flex-col items-center animate-slideUpFade">
+    <h2 class="text-4xl sm:text-5xl font-extrabold mb-10"
+        style="color:var(--netflix-red);font-family:'Bebas Neue',sans-serif;letter-spacing:.05em;">
+      PROFESSIONAL&nbsp;EXPERIENCE
+    </h2>
+
+    <div class="w-full max-w-5xl space-y-8">
+
+      <!-- === CSU GRA === -->
+      <article class="bg-gray-900/60 border border-gray-700 rounded-xl p-8">
+        <header class="flex items-center mb-4 gap-4">
+          <i class="fa-solid fa-school text-3xl text-[var(--netflix-red)]"></i>
+          <div>
+            <h3 class="text-xl font-bold">Data Analyst — Graduate Research Assistant</h3>
+            <p class="text-sm text-gray-400">Colorado State University • Aug&nbsp;2024 – May&nbsp;2025</p>
+          </div>
+        </header>
+        <ul class="list-disc list-inside space-y-2 text-sm sm:text-base">
+          <li>Built SQL / Python ETL pipelines delivering 80 % of research-critical data.</li>
+          <li>Created Tableau dashboards for longitudinal performance insights.</li>
+          <li>Integrated Bing &amp; ChatGPT APIs to power news-credibility scoring.</li>
+          <li>Developed full-stack React + Flask + MSSQL platform for session-based validation.</li>
+        </ul>
+      </article>
+
+      <!-- === Amazon LMAQ === -->
+      <article class="bg-gray-900/60 border border-gray-700 rounded-xl p-8">
+        <header class="flex items-center mb-4 gap-4">
+          <i class="fa-brands fa-amazon text-3xl text-[var(--netflix-red)]"></i>
+          <div>
+            <h3 class="text-xl font-bold">Data Analyst — Quality Specialist</h3>
+            <p class="text-sm text-gray-400">Amazon (LMAQ Team) • Jul&nbsp;2019 – Dec&nbsp;2023</p>
+          </div>
+        </header>
+        <ul class="list-disc list-inside space-y-2 text-sm sm:text-base">
+          <li>Designed Power BI dashboards, boosting KPI visibility by 20 %.</li>
+          <li>Automated audit analytics with SQL & Excel Power Query for SLA alignment.</li>
+          <li>Performed root-cause analyses on UDS-mapped datasets; drove corrective action.</li>
+          <li>Enhanced Amazon Maps with JavaScript features for improved UI/UX.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== Projects ===== -->
+  <section id="projects" class="py-12 px-4 flex flex-col items-center animate-slideUpFade">
+    <h2 class="text-4xl sm:text-5xl font-extrabold mb-10"
+        style="color:var(--netflix-red);font-family:'Bebas Neue',sans-serif;letter-spacing:.05em;">
+      PROJECTS
+    </h2>
+
+    <div class="w-full max-w-5xl space-y-8">
+
+      <!-- === News Judgement Tool === -->
+      <article class="bg-gray-900/60 border border-gray-700 rounded-xl p-8">
+        <header class="flex items-center mb-4 gap-4">
+          <i class="fa-solid fa-newspaper text-3xl text-[var(--netflix-red)]"></i>
+          <div>
+            <h3 class="text-xl font-bold">News Judgement Tool – Influence of AI on Human Behaviour</h3>
+            <p class="text-sm text-gray-400">Client: Colorado State University • Dec&nbsp;2024 – May&nbsp;2025</p>
+          </div>
+        </header>
+        <ul class="list-disc list-inside space-y-2 text-sm sm:text-base">
+          <li>Built end-to-end ETL (Python, SQL, BeautifulSoup, APIs); automated data wrangling.</li>
+          <li>Deployed Flask REST APIs and MSSQL to manage user sessions &amp; query storage.</li>
+          <li>Developed a responsive React front-end; improved interaction-logging accuracy.</li>
+          <li>Delivered Tableau KPIs dashboards enabling data-driven stakeholder decisions.</li>
+        </ul>
+      </article>
+
+      <!-- === Preference Analysis === -->
+      <article class="bg-gray-900/60 border border-gray-700 rounded-xl p-8">
+        <header class="flex items-center mb-4 gap-4">
+          <i class="fa-solid fa-chart-bar text-3xl text-[var(--netflix-red)]"></i>
+          <div>
+            <h3 class="text-xl font-bold">Preference Analysis of Different Technical Tools</h3>
+            <p class="text-sm text-gray-400">Aug&nbsp;2024 – Dec&nbsp;2024</p>
+          </div>
+        </header>
+        <ul class="list-disc list-inside space-y-2 text-sm sm:text-base">
+          <li>Automated data ingestion from AWS Redshift &amp; S3; optimised storage life-cycle policies.</li>
+          <li>Normalised multi-source datasets using ACID-compliant SQL transactions.</li>
+          <li>Applied quantile binning for interpretable usage-trend segmentation.</li>
+          <li>Enhanced datasets via Python web-scraping for richer downstream analytics.</li>
+        </ul>
+      </article>
+
+      <!-- === Vaccination Analysis === -->
+      <article class="bg-gray-900/60 border border-gray-700 rounded-xl p-8">
+        <header class="flex items-center mb-4 gap-4">
+          <i class="fa-solid fa-syringe text-3xl text-[var(--netflix-red)]"></i>
+          <div>
+            <h3 class="text-xl font-bold">Vaccination Analysis</h3>
+            <p class="text-sm text-gray-400">Apr&nbsp;2025</p>
+          </div>
+        </header>
+        <ul class="list-disc list-inside space-y-2 text-sm sm:text-base">
+          <li>Created Tableau dashboards with custom calc-fields to visualise vaccination KPIs.</li>
+          <li>Produced a comprehensive insights report for public-health stakeholders.</li>
+        </ul>
+      </article>
+
+      <!-- === Amazon Deviation Analysis === -->
+      <article class="bg-gray-900/60 border border-gray-700 rounded-xl p-8">
+        <header class="flex items-center mb-4 gap-4">
+          <i class="fa-solid fa-truck-fast text-3xl text-[var(--netflix-red)]"></i>
+          <div>
+            <h3 class="text-xl font-bold">Deviation Analysis &amp; Performance Dashboard (Delivery Time Reduction)</h3>
+            <p class="text-sm text-gray-400">Client: Amazon LMAQ – Operations • Aug&nbsp;2022 – Dec&nbsp;2022</p>
+          </div>
+        </header>
+        <ul class="list-disc list-inside space-y-2 text-sm sm:text-base">
+          <li>Built Power BI dashboard showcasing productivity &amp; quality KPIs for courier ops.</li>
+          <li>Cleansed &amp; transformed data to pinpoint outliers driving delivery delays.</li>
+          <li>Presented findings &amp; actionable remedies to leadership, enabling  data-driven improvements.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+</body>
+</html>

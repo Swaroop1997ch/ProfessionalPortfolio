@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swaroop Chandrapalaka – Data Analyst</title>
+
+    <!-- Netflix‑style font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      :root {
+        --netflix-red: #e50914;
+      }
+
+      /* ================= Shared Animations ================= */
+      .fuzzy {
+        filter: url(#fuzz) blur(0.6px);
+      }
+      @keyframes wiggle {
+        0%,
+        100% {
+          transform: rotate(-2deg) translateY(0);
+        }
+        50% {
+          transform: rotate(2deg) translateY(-6px);
+        }
+      }
+
+      /* Loader typing */
+      @keyframes reveal {
+        0% {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .letter {
+        opacity: 0;
+        animation: reveal 0.3s forwards;
+      }
+      #loader-text {
+        font-family: "Bebas Neue", sans-serif;
+        color: var(--netflix-red);
+        letter-spacing: 0.05em;
+        text-shadow: 0 0 8px rgba(229, 9, 20, 0.6);
+      }
+
+      /* Content entrance */
+      @keyframes slideUp {
+        0% {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-slideUp {
+        animation: slideUp 0.8s ease-out forwards;
+      }
+    </style>
+  </head>
+  <body
+    class="min-h-screen bg-black flex items-center justify-center p-4 relative"
+  >
+    <!-- ===== SVG filter for "fur" effect ===== -->
+    <svg class="absolute w-0 h-0">
+      <filter id="fuzz">
+        <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" />
+        <feDisplacementMap in="SourceGraphic" scale="6" />
+      </filter>
+    </svg>
+
+    <!-- ============ LOADER ============ -->
+    <div
+      id="loader"
+      class="fixed inset-0 bg-black flex items-center justify-center z-50"
+    >
+      <h1
+        id="loader-text"
+        class="text-3xl sm:text-4xl md:text-6xl tracking-widest text-center leading-tight"
+      ></h1>
+    </div>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <main id="content" class="w-full max-w-6xl opacity-0 translate-y-6">
+      <h2
+        class="text-center text-3xl sm:text-4xl md:text-5xl font-bold mb-10"
+        style="
+          color: var(--netflix-red);
+          font-family: 'Bebas Neue', sans-serif;
+          letter-spacing: 0.05em;
+        "
+      >
+        Swaroop's Portfolio
+      </h2>
+
+      <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-4 place-items-center">
+        <!-- === Tile component (reusable) === -->
+        <template id="tile">
+          <a
+            href="#"
+            class="flex flex-col items-center space-y-3 group focus:outline-none"
+          >
+            <div
+              class="relative h-32 w-32 rounded-md fuzzy shadow-lg flex flex-col items-center justify-center transition-transform duration-300 group-hover:shadow-2xl group-hover:[animation:wiggle_1.2s_ease-in-out_infinite] tile-color"
+            >
+              <!-- Eyes -->
+              <div class="flex space-x-3 mb-1">
+                <div class="h-4 w-4 bg-black rounded-full"></div>
+                <div class="h-4 w-4 bg-black rounded-full"></div>
+              </div>
+              <!-- Curved smile (SVG) -->
+              <svg width="64" height="20" viewBox="0 0 64 20" class="-mt-1">
+                <path
+                  d="M2 2 q30 20 60 0"
+                  stroke="black"
+                  stroke-width="4"
+                  fill="none"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <!-- Sparkles -->
+              <div
+                class="absolute top-[55%] left-[28%] h-1 w-1 bg-white rounded-full animate-ping"
+              ></div>
+              <div
+                class="absolute top-[65%] right-[28%] h-1 w-1 bg-white rounded-full animate-ping"
+              ></div>
+            </div>
+            <span class="text-sm font-semibold text-gray-300 tile-label"
+              >Label</span
+            >
+          </a>
+        </template>
+
+        <!-- About Me -->
+        <div class="about"></div>
+        <!-- Experience -->
+        <div class="experience"></div>
+        <!-- Core Skills -->
+        <div class="skills"></div>
+        <!-- Contact Me -->
+        <div class="contact"></div>
+      </div>
+    </main>
+
+    <!-- ========= JS ========= -->
+    <script>
+      /* ---- 1. Build loader typing ---- */
+      const title = "Swaroop Chandrapalaka\nData Analyst";
+      const loaderText = document.getElementById("loader-text");
+      title.split("").forEach((ch, i) => {
+        if (ch === "\n") {
+          loaderText.appendChild(document.createElement("br"));
+          return;
+        }
+        const span = document.createElement("span");
+        span.textContent = ch;
+        span.classList.add("letter");
+        span.style.animationDelay = `${i * 0.08}s`;
+        loaderText.appendChild(span);
+      });
+
+      /* ---- 2. Create tiles dynamically (keeps markup tidy) ---- */
+      const tiles = [
+        {
+          selector: ".about",
+          href: "about.html",
+          color: "bg-red-500",
+          label: "About Me",
+        },
+        {
+          selector: ".experience",
+          href: "#experience",
+          color: "bg-yellow-400",
+          label: "Experience",
+        },
+        {
+          selector: ".skills",
+          href: "skills.html",
+          color: "bg-cyan-500",
+          label: "Core Skills",
+        },
+        {
+          selector: ".contact",
+          href: "contact.html",
+          color: "bg-gray-500",
+          label: "Contact Me",
+        },
+      ];
+      const tmpl = document.getElementById("tile").content;
+      tiles.forEach((t) => {
+        const clone = tmpl.cloneNode(true);
+        const link = clone.querySelector("a");
+        link.href = t.href;
+        clone.querySelector(".tile-color").classList.add(t.color);
+        clone.querySelector(".tile-label").textContent = t.label;
+        document.querySelector(t.selector).replaceWith(clone);
+      });
+
+      /* ---- 3. Loader timing & content reveal ---- */
+      window.addEventListener("load", () => {
+        const loader = document.getElementById("loader");
+        const content = document.getElementById("content");
+
+        const totalDelay = title.length * 80 + 800; // typing + buffer
+
+        // After typing finished
+        setTimeout(() => {
+          loader.classList.add(
+            "transition-opacity",
+            "duration-700",
+            "opacity-0"
+          );
+
+          // Wait for fade‑out to finish, then hide overlay
+          setTimeout(() => {
+            loader.style.display = "none";
+
+            // 1‑second pause, then slide content up
+            setTimeout(() => {
+              content.classList.remove("opacity-0", "translate-y-6");
+              content.classList.add("animate-slideUp");
+            }, 1000);
+          }, 700);
+        }, totalDelay);
+      });
+    </script>
+  </body>
+</html>
